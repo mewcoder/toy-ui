@@ -1,0 +1,53 @@
+<template>
+  <div>
+    <h3>数据校验表单组件——Form</h3>
+    <z-form ref="form" :model="formValidate" :rules="ruleValidate">
+      <z-form-item label="用户名" prop="name">
+        <z-input v-model="formValidate.name"></z-input>
+      </z-form-item>
+      <z-form-item label="邮箱" prop="mail">
+        <z-input v-model="formValidate.mail"></z-input>
+      </z-form-item>
+    </z-form>
+    <z-button @click="handleSubmit">提交</z-button>
+    <z-button @click="handleReset">重置</z-button>
+  </div>
+</template>
+<script>
+import ZForm from "../components/form/form.vue";
+import ZFormItem from "../components/form/form-item.vue";
+import ZInput from "../components/input/input.vue";
+import ZButton from "../components/button/button.vue";
+export default {
+  components: { ZForm, ZFormItem, ZInput, ZButton },
+  data() {
+    return {
+      formValidate: {
+        name: "",
+        mail: "",
+      },
+      ruleValidate: {
+        name: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
+        mail: [
+          { required: true, message: "邮箱不能为空", trigger: "blur" },
+          { type: "email", message: "邮箱格式不正确", trigger: "blur" },
+        ],
+      },
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          window.alert("提交成功");
+        } else {
+          window.alert("表单校验失败");
+        }
+      });
+    },
+    handleReset() {
+      this.$refs.form.resetFields();
+    },
+  },
+};
+</script>
