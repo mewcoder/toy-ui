@@ -23,6 +23,16 @@
       </z-radio-group>
       radio:{{ radio }}
     </div>
+    <div>
+      <z-checkbox-group v-model="checkList">
+        <z-checkbox label="复选框 A"></z-checkbox>
+        <z-checkbox label="复选框 B"></z-checkbox>
+        <z-checkbox label="复选框 C"></z-checkbox>
+        <z-checkbox label="禁用" disabled></z-checkbox>
+        <z-checkbox label="选中且禁用" disabled></z-checkbox>
+      </z-checkbox-group>
+      checkbox:{{ checkList }}
+    </div>
   </div>
 </template>
 <script>
@@ -33,6 +43,8 @@ import ZButton from "../components/button/button.vue";
 import ZSwitch from "../components/switch/switch.vue";
 import ZRadio from "../components/radio/radio.vue";
 import ZRadioGroup from "../components/radio/radio-group.vue";
+import ZCheckbox from "../components/checkbox/checkbox.vue";
+import ZCheckboxGroup from "../components/checkbox/checkbox-group.vue";
 export default {
   components: {
     ZForm,
@@ -42,9 +54,12 @@ export default {
     ZSwitch,
     ZRadio,
     ZRadioGroup,
+    ZCheckbox,
+    ZCheckboxGroup,
   },
   data() {
     return {
+      checkList: ["选中且禁用", "复选框 A"],
       radio: "1",
       formValidate: {
         name: "",
