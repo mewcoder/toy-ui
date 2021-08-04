@@ -1,4 +1,4 @@
-# ToyUI组件库 by Vue.js
+# ToyUI组件库 Vue.js
 
 ## V2
 
