@@ -64,3 +64,5 @@ export default {
 </script>
 
 <style lang="scss" src="./button.scss"></style>
+
+/* 说明 */

@@ -2,6 +2,7 @@
 
 ## V2
 
+
 - 采用 Vue2版本 开发
 - 直接引用 elementui 的[css](https://github.com/ElementUI/theme-chalk)，以实现逻辑为主，不考虑样式
 
@@ -20,3 +21,6 @@
   - backtop
   - tree
   - table
+
+
+> https://element.eleme.cn/#/zh-CN/component
