@@ -1,26 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import routeList from "./config";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/test",
-    name: "Test",
-    component: () => import("../views/Test.vue"),
-  },
-  {
-    path: "/form",
-    name: "Form",
-    component: () => import("../views/Form.vue"),
-  },
-];
+const routes = routeList.map((item) => {
+  return {
+    path: `/${item}`,
+    name: `${item}`,
+    component: () => import(`@/views/${item}`),
+  };
+});
 
 const router = new VueRouter({
   routes,

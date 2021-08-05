@@ -1,25 +1,39 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/test">Test</router-link>|
-      <router-link to="/form">Form</router-link>
+      <router-link
+        style="padding-right:10px"
+        v-for="(item, index) in list"
+        :key="index"
+        :to="'/' + item"
+        >{{ item }}</router-link
+      >
     </div>
+    <hr />
     <router-view />
   </div>
 </template>
 
+<script>
+import routeList from "@/router/config";
+export default {
+  name: "App",
+  computed: {
+    list() {
+      return routeList;
+    },
+  },
+};
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 30px;
 }
 
 #nav a {
@@ -29,5 +43,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+hr {
+  margin: 30px 0;
 }
 </style>

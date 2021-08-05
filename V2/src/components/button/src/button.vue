@@ -24,11 +24,11 @@
 
 <script>
 export default {
-  name: "ZButton",
+  name: "TButton",
   props: {
     type: {
       type: String,
-      default: "primary",
+      default: "",
     },
     size: {
       type: String,
@@ -63,4 +63,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" src="./button.scss"></style>

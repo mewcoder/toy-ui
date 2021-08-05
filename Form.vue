@@ -36,15 +36,15 @@
   </div>
 </template>
 <script>
-import ZForm from "../components/form/form.vue";
-import ZFormItem from "../components/form/form-item.vue";
-import ZInput from "../components/input/input.vue";
-import ZButton from "../components/button/button.vue";
-import ZSwitch from "../components/switch/switch.vue";
-import ZRadio from "../components/radio/radio.vue";
-import ZRadioGroup from "../components/radio/radio-group.vue";
-import ZCheckbox from "../components/checkbox/checkbox.vue";
-import ZCheckboxGroup from "../components/checkbox/checkbox-group.vue";
+import ZForm from "./V2/src/components/form/form.vue";
+import ZFormItem from "./V2/src/components/form/form-item.vue";
+import ZInput from "./V2/src/components/input/input.vue";
+import ZButton from "./V2/src/components/button/button.vue";
+import ZSwitch from "./V2/src/components/switch/switch.vue";
+import ZRadio from "./V2/src/components/radio/radio.vue";
+import ZRadioGroup from "./V2/src/components/radio/radio-group.vue";
+import ZCheckbox from "./V2/src/components/checkbox/checkbox.vue";
+import ZCheckboxGroup from "./V2/src/components/checkbox/checkbox-group.vue";
 export default {
   components: {
     ZForm,

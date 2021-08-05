@@ -1,14 +1,18 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-Vue.config.productionTip = false;
+import components from "@/components";
 
-// import "@/assets/theme/index.css";
+import "@/assets/icon/icon.scss";
 
-import messageService from "./components/message/service.js";
-Vue.prototype.$message = messageService;
+// import messageService from "./components/message/service.js";
+// Vue.prototype.$message = messageService;
 
 new Vue({
-    router,
-    render: (h) => h(App),
+  router,
+  render: (h) => h(App),
 }).$mount("#app");
+
+components.map(({ install }) => {
+  install(Vue);
+});
