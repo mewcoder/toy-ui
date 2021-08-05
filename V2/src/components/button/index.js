@@ -1,4 +1,4 @@
-import TButton from "./src/button";
+import TButton from './src/button';
 
 TButton.install = function (Vue) {
   Vue.component(TButton.name, TButton);

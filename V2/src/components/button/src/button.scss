@@ -57,7 +57,7 @@
     border: 0;
   }
 
-  & [class*='el-icon-'] {
+  & [class*='t-icon-'] {
     & + span {
       margin-left: 5px;
     }
@@ -87,19 +87,6 @@
     }
   }
 
-  @include when(active) {
-    color: mix(
-      $--color-black,
-      $--color-primary,
-      $--button-active-shade-percent
-    );
-    border-color: mix(
-      $--color-black,
-      $--color-primary,
-      $--button-active-shade-percent
-    );
-  }
-
   @include when(disabled) {
     &,
     &:hover,
@@ -111,7 +98,7 @@
       border-color: $--button-disabled-border-color;
     }
 
-    &.el-button--text {
+    &.t-button--text {
       background-color: transparent;
     }
 
@@ -258,10 +245,10 @@
   display: inline-block;
   vertical-align: middle;
 
-  & > .el-button {
+  & > .t-button {
     float: left;
     position: relative;
-    & + .el-button {
+    & + .t-button {
       margin-left: 0;
     }
     &.is-disabled {
@@ -307,8 +294,8 @@
     }
   }
 
-  & > .el-dropdown {
-    & > .el-button {
+  & > .t-dropdown {
+    & > .t-button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-left-color: rgba($--color-white, 0.5);
@@ -316,7 +303,7 @@
   }
 
   @each $type in (primary, success, warning, danger, info) {
-    .el-button--#{$type} {
+    .t-button--#{$type} {
       &:first-child {
         border-right-color: rgba($--color-white, 0.5);
       }

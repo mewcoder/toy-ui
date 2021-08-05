@@ -1,23 +1,22 @@
-<!--
-    记录： type disabled loading size icon
--->
-
 <template>
   <button
-    class="el-button"
+    class="t-button"
     @click="handleClick"
     :disabled="buttonDisabled || loading"
     :class="[
-      type ? 'el-button--' + type : '',
-      buttonSize ? 'el-button--' + buttonSize : '',
+      type ? 't-button--' + type : '',
+      buttonSize ? 't-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
-        'is-loading': loading
+        'is-loading': loading,
+        'is-plain': plain,
+        'is-round': round,
+        'is-circle': circle
       }
     ]"
   >
+    <i class="t-icon-loading" v-if="loading"></i>
     <i :class="icon" v-if="icon && !loading"></i>
-    <i class="el-icon-loading" v-if="loading"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
@@ -28,24 +27,18 @@ export default {
   props: {
     type: {
       type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    loading: {
-      type: Boolean,
-      default: false
+      default: 'default'
     },
     icon: {
       type: String,
       default: ''
-    }
+    },
+    size: String,
+    loading: Boolean,
+    disabled: Boolean,
+    plain: Boolean,
+    round: Boolean,
+    circle: Boolean
   },
   computed: {
     buttonDisabled() {
@@ -65,4 +58,5 @@ export default {
 
 <style lang="scss" src="./button.scss"></style>
 
-/* 说明 */
+/* 说明
+原生button：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button */
