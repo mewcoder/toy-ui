@@ -12,8 +12,8 @@
       buttonSize ? 'el-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
-        'is-loading': loading,
-      },
+        'is-loading': loading
+      }
     ]"
   >
     <i :class="icon" v-if="icon && !loading"></i>
@@ -24,28 +24,28 @@
 
 <script>
 export default {
-  name: "TButton",
+  name: 'TButton',
   props: {
     type: {
       type: String,
-      default: "",
+      default: ''
     },
     size: {
       type: String,
-      default: "medium",
+      default: 'medium'
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: String,
-      default: "",
-    },
+      default: ''
+    }
   },
   computed: {
     buttonDisabled() {
@@ -53,13 +53,13 @@ export default {
     },
     buttonSize() {
       return this.size;
-    },
+    }
   },
   methods: {
     handleClick(e) {
-      this.$emit("click", e);
-    },
-  },
+      this.$emit('click', e);
+    }
+  }
 };
 </script>
 

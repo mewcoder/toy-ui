@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@import "@/assets/common/var";
-@import "@/assets/mixins/_button";
-@import "@/assets/mixins/mixins";
-@import "@/assets/mixins/utils";
+@import '@/assets/common/var';
+@import '@/assets/mixins/_button';
+@import '@/assets/mixins/mixins';
+@import '@/assets/mixins/utils';
 
 @include b(button) {
   display: inline-block;
@@ -57,7 +57,7 @@
     border: 0;
   }
 
-  & [class*="el-icon-"] {
+  & [class*='el-icon-'] {
     & + span {
       margin-left: 5px;
     }
@@ -132,7 +132,7 @@
 
     &:before {
       pointer-events: none;
-      content: "";
+      content: '';
       position: absolute;
       left: -1px;
       top: -1px;
