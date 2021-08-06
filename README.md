@@ -21,20 +21,14 @@
 
 > 参考：https://element.eleme.cn/#/zh-CN/component
 
-> 代码提交
->
-> feat：增加一个新功能
->
-> fix：修复 bug
->
-> docs：只修改了文档
->
-> style：做了不影响代码含义的修改，空格、格式化、缺少分号等等
->
-> refactor：进行代码重构，既不是修复 bug，也不是新功能的修改
->
-> perf：改进性能的代码
->
-> test：增加测试或更新已有的测试
->
-> chore：构建或辅助工具或依赖库的更新
+> 代码提交规范
+- feat	新增一个功能
+- fix	修复一个 Bug
+- docs	文档变更（更新文档、Demo）
+- ci	发布控件版本
+- style	代码风格变更（不影响功能，解决代码冲突、eslint 校验修改等）
+- refactor	重构（即不是新增功能，也不是修改 bug 的代码变动）
+- chore	开发工具变动（框架改动、eslint 规则变动等）
+- test	新增测试
+- perf	改善性能
+- revert	代码回退（如果当前 commit 用于撤销以前的 commit）
