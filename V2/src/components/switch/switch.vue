@@ -9,22 +9,22 @@
     @click="handleClick"
   >
     <input class="el-switch__input" type="checkbox" ref="input" />
-    <span class="el-switch__core" ref="core"> </span>
+    <span class="el-switch__core" ref="core"></span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ZSwitch",
+  name: 'ZSwitch',
   props: {
     value: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     checked() {
@@ -32,17 +32,17 @@ export default {
     },
     switchDisabled() {
       return this.disabled;
-    },
+    }
   },
   methods: {
     handleClick() {
-      this.$emit("input", !this.value);
+      this.$emit('input', !this.value);
       this.$refs.input.checked = !this.value;
-    },
+    }
   },
   mounted() {
     this.$refs.input.checked = this.value;
-  },
+  }
 };
 </script>
 

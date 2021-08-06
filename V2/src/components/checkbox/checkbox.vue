@@ -3,9 +3,7 @@
 -->
 
 <template>
-  <label
-    class="el-checkbox"
-  >
+  <label class="el-checkbox">
     <span
       class="el-checkbox__input"
       :class="[{ 'is-disabled': disabled }, { 'is-checked': isChecked }]"
@@ -28,25 +26,25 @@
 
 <script>
 export default {
-  name: "ZCheckbox",
+  name: 'ZCheckbox',
   inject: {
     CheckboxGroup: {
-      default: "",
-    },
+      default: ''
+    }
   },
   props: {
     label: {
       type: String,
-      default: "",
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     value: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     model: {
@@ -54,12 +52,12 @@ export default {
         return this.isGroup ? this.CheckboxGroup.value : this.value;
       },
       set(value) {
-        console.log(value)
+        console.log(value);
         // 触发父组件给当前组件注册的input事件
         this.isGroup
-          ? this.CheckboxGroup.$emit("input", value)
-          : this.$emit("input", value);
-      },
+          ? this.CheckboxGroup.$emit('input', value)
+          : this.$emit('input', value);
+      }
     },
     isGroup() {
       // 用于判断radio是否被radioGroup所包裹
@@ -71,8 +69,8 @@ export default {
       // console.warn("model:" + this.model);
       // console.warn("label:" + this.label);
       return this.isGroup ? this.model.includes(this.label) : this.model;
-    },
-  },
+    }
+  }
 };
 </script>
 

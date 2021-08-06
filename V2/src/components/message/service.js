@@ -1,26 +1,26 @@
-import Vue from "vue";
-import Main from "./message.vue";
+import Vue from 'vue';
+import Main from './message.vue';
 let MessageConstructor = Vue.extend(Main);
 
 let instance;
 let instances = [];
 let seed = 1;
 
-const Message = function(options) {
+const Message = function (options) {
   options = options || {};
-  if (typeof options === "string") {
+  if (typeof options === 'string') {
     options = {
-      message: options,
+      message: options
     };
   }
-  let id = "message_" + seed++;
+  let id = 'message_' + seed++;
 
-  options.onClose = function() {
+  options.onClose = function () {
     Message.close(id);
   };
 
   instance = new MessageConstructor({
-    data: options,
+    data: options
   });
 
   instance.id = id;
@@ -29,7 +29,7 @@ const Message = function(options) {
   document.body.appendChild(instance.$el);
 
   let verticalOffset = options.offset || 20;
-  instances.forEach((item) => {
+  instances.forEach(item => {
     verticalOffset += item.$el.offsetHeight + 16;
   });
   instance.verticalOffset = verticalOffset;
@@ -40,7 +40,7 @@ const Message = function(options) {
   return instance;
 };
 
-Message.close = function(id) {
+Message.close = function (id) {
   let len = instances.length;
   let index = -1;
   let removedHeight;
@@ -56,9 +56,9 @@ Message.close = function(id) {
   for (let i = index; i < len - 1; i++) {
     let dom = instances[i].$el;
     console.log(removedHeight);
-    console.log(dom.style["top"]);
-    dom.style["top"] =
-      parseInt(dom.style["top"], 10) - removedHeight - 16 + "px";
+    console.log(dom.style['top']);
+    dom.style['top'] =
+      parseInt(dom.style['top'], 10) - removedHeight - 16 + 'px';
   }
 };
 

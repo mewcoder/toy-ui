@@ -2,12 +2,13 @@
   <div id="app">
     <div id="nav">
       <router-link
-        style="padding-right:10px"
         v-for="(item, index) in list"
+        style="padding-right: 10px"
         :key="index"
         :to="'/' + item"
-        >{{ item }}</router-link
       >
+        {{ item }}
+      </router-link>
     </div>
     <hr />
     <router-view />
@@ -15,14 +16,14 @@
 </template>
 
 <script>
-import routeList from "@/router/config";
+import routeList from '@/router/config';
 export default {
-  name: "App",
+  name: 'App',
   computed: {
     list() {
       return routeList;
-    },
-  },
+    }
+  }
 };
 </script>
 

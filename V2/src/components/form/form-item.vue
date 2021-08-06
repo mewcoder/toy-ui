@@ -6,8 +6,8 @@
     class="el-form-item"
     :class="[
       {
-        'is-required': isRequired,
-      },
+        'is-required': isRequired
+      }
     ]"
   >
     <label v-if="label" class="el-form-item__label">{{ label }}</label>
@@ -21,26 +21,26 @@
 </template>
 
 <script>
-import AsyncValidator from "async-validator";
-import emitter from "@/mixins/emitter.js";
+import AsyncValidator from 'async-validator';
+import emitter from '@/mixins/emitter.js';
 
 export default {
-  name: "ZFormItem",
+  name: 'ZFormItem',
   mixins: [emitter],
-  inject: ["form"],
+  inject: ['form'],
   props: {
     label: {
       type: String,
-      default: "",
+      default: ''
     },
     prop: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {
-      validateState: "",
-      validateMessage: "",
+      validateState: '',
+      validateMessage: ''
     };
   },
   computed: {
@@ -49,7 +49,7 @@ export default {
       let isRequired = false;
 
       if (rules && rules.length) {
-        rules.every((rule) => {
+        rules.every(rule => {
           if (rule.required) {
             isRequired = true;
           }
@@ -60,14 +60,14 @@ export default {
     // 从 Form 的 model 中动态得到当前表单组件的数据
     fieldValue() {
       return this.form.model[this.prop];
-    },
+    }
   },
   methods: {
     setRules() {
       let rules = this.getRules();
       if (rules.length) {
-        this.$on("on-form-blur", this.onFieldBlur);
-        this.$on("on-form-change", this.onFieldChange);
+        this.$on('on-form-blur', this.onFieldBlur);
+        this.$on('on-form-change', this.onFieldChange);
       }
     },
     // 从 Form 的 rules 属性中，获取当前 FormItem 的校验规则
@@ -77,15 +77,15 @@ export default {
       return [].concat(formRules || []);
     },
     onFieldBlur() {
-      this.validate("blur");
+      this.validate('blur');
     },
     onFieldChange() {
-      this.validate("change");
+      this.validate('change');
     },
     // 重置数据
     resetField() {
-      this.validateState = "";
-      this.validateMessage = "";
+      this.validateState = '';
+      this.validateMessage = '';
 
       this.form.model[this.prop] = this.initialValue;
     },
@@ -93,7 +93,7 @@ export default {
     getFilteredRule(trigger) {
       const rules = this.getRules();
       return rules.filter(
-        (rule) => !rule.trigger || rule.trigger.indexOf(trigger) !== -1
+        rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1
       );
     },
     /**
@@ -101,7 +101,7 @@ export default {
      * @param trigger 校验类型
      * @param callback 回调函数
      */
-    validate(trigger, callback = function() {}) {
+    validate(trigger, callback = function () {}) {
       let rules = this.getFilteredRule(trigger);
 
       if (!rules || rules.length === 0) {
@@ -109,7 +109,7 @@ export default {
       }
 
       // 设置状态为校验中
-      this.validateState = "validating";
+      this.validateState = 'validating';
 
       // 以下为 async-validator 库的调用方法
       let descriptor = {};
@@ -120,18 +120,18 @@ export default {
 
       model[this.prop] = this.fieldValue;
 
-      validator.validate(model, { firstFields: true }, (errors) => {
-        this.validateState = !errors ? "success" : "error";
-        this.validateMessage = errors ? errors[0].message : "";
+      validator.validate(model, { firstFields: true }, errors => {
+        this.validateState = !errors ? 'success' : 'error';
+        this.validateMessage = errors ? errors[0].message : '';
 
         callback(this.validateMessage);
       });
-    },
+    }
   },
   mounted() {
     // 如果没有传入 prop，则无需校验，也就无需缓存
     if (this.prop) {
-      this.dispatch("ZForm", "on-form-item-add", this);
+      this.dispatch('ZForm', 'on-form-item-add', this);
       // 设置初始值，以便在重置时恢复默认值
       this.initialValue = this.fieldValue;
 
@@ -140,7 +140,7 @@ export default {
   },
   // 组件销毁前，将实例从 Form 的缓存中移除
   beforeDestroy() {
-    this.dispatch("ZForm", "on-form-item-remove", this);
-  },
+    this.dispatch('ZForm', 'on-form-item-remove', this);
+  }
 };
 </script>

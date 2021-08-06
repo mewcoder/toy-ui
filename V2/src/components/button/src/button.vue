@@ -2,10 +2,10 @@
   <button
     class="t-button"
     @click="handleClick"
-    :disabled="buttonDisabled || loading"
+    :disabled="disabled || loading"
     :class="[
       type ? 't-button--' + type : '',
-      buttonSize ? 't-button--' + buttonSize : '',
+      buttonSize ? 't-button--' + size : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,
@@ -29,10 +29,7 @@ export default {
       type: String,
       default: 'default'
     },
-    icon: {
-      type: String,
-      default: ''
-    },
+    icon: String,
     size: String,
     loading: Boolean,
     disabled: Boolean,
@@ -40,14 +37,7 @@ export default {
     round: Boolean,
     circle: Boolean
   },
-  computed: {
-    buttonDisabled() {
-      return this.disabled;
-    },
-    buttonSize() {
-      return this.size;
-    }
-  },
+  computed: {},
   methods: {
     handleClick(e) {
       this.$emit('click', e);

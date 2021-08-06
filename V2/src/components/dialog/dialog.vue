@@ -23,30 +23,30 @@
 
 <script>
 export default {
-  name: "ZDialog",
+  name: 'ZDialog',
   props: {
     title: {
       type: String,
-      default: "提示",
+      default: '提示'
     },
     width: {
       type: String,
-      default: "50%",
+      default: '50%'
     },
     top: {
       type: String,
-      default: "15vh",
+      default: '15vh'
     },
     visible: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     handleClose() {
-      this.$emit("update:visible", false);
-    },
-  },
+      this.$emit('update:visible', false);
+    }
+  }
 };
 </script>
 

@@ -7,7 +7,7 @@
     <span
       class="el-radio__input"
       :class="{
-        'is-checked': model === label,
+        'is-checked': model === label
       }"
     >
       <span class="el-radio__inner"></span>
@@ -28,22 +28,22 @@
 
 <script>
 export default {
-  name: "ZRadio",
+  name: 'ZRadio',
   inject: {
     RadioGroup: {
-      default: "",
-    },
+      default: ''
+    }
   },
   props: {
     label: {
       type: [String, Number, Boolean],
-      default: "",
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    value: null,
+    value: null
   },
   computed: {
     model: {
@@ -53,15 +53,15 @@ export default {
       set(value) {
         // 触发父组件给当前组件注册的input事件
         this.isGroup
-          ? this.RadioGroup.$emit("input", value)
-          : this.$emit("input", value);
-      },
+          ? this.RadioGroup.$emit('input', value)
+          : this.$emit('input', value);
+      }
     },
     isGroup() {
       // 用于判断radio是否被radioGroup所包裹
       return !!this.RadioGroup;
-    },
-  },
+    }
+  }
 };
 </script>
 

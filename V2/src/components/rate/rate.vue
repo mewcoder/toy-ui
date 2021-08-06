@@ -11,7 +11,7 @@
       <i
         class="el-rate__icon"
         :class="'el-icon-star-' + (currentValue >= item ? 'on' : 'off')"
-        style="color: #F7BA2A"
+        style="color: #f7ba2a"
       ></i>
     </span>
   </div>
@@ -19,20 +19,20 @@
 
 <script>
 export default {
-  name: "ZRate",
+  name: 'ZRate',
   props: {
     value: {
       type: Number,
-      default: 0,
+      default: 0
     },
     max: {
       type: Number,
-      default: 5,
-    },
+      default: 5
+    }
   },
   data() {
     return {
-      currentValue: this.value,
+      currentValue: this.value
     };
   },
   methods: {
@@ -43,9 +43,9 @@ export default {
       this.currentValue = this.value;
     },
     selectValue(val) {
-      this.$emit("input", val);
-    },
-  },
+      this.$emit('input', val);
+    }
+  }
 };
 </script>
 

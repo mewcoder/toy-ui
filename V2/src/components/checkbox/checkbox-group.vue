@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  name: "ZCheckboxGroup",
+  name: 'ZCheckboxGroup',
   provide() {
     return {
-      CheckboxGroup: this,
+      CheckboxGroup: this
     };
   },
   props: {
@@ -17,8 +17,8 @@ export default {
     // 将来还需要触发 当前组件的input事件
     // provide 与  inject  provider/consumer
     value: {
-      type: Array,
-    },
-  },
+      type: Array
+    }
+  }
 };
 </script>

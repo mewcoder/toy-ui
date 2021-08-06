@@ -6,8 +6,8 @@
       v-show="visible"
     >
       <i :class="typeClass"></i>
-      <slot
-        ><p class="el-message__content">{{ message }}</p>
+      <slot>
+        <p class="el-message__content">{{ message }}</p>
       </slot>
       <i
         v-if="showClose"
@@ -20,21 +20,21 @@
 
 <script>
 const typeMap = {
-  success: "success",
-  info: "info",
-  warning: "warning",
-  error: "error",
+  success: 'success',
+  info: 'info',
+  warning: 'warning',
+  error: 'error'
 };
 export default {
   data() {
     return {
       visible: true,
-      message: "这是一条消息提示",
-      type: "info",
+      message: '这是一条消息提示',
+      type: 'info',
       verticalOffset: 20,
       duration: 3000,
       showClose: false,
-      closed: false,
+      closed: false
     };
   },
   computed: {
@@ -43,15 +43,15 @@ export default {
     },
     positionStyle() {
       return {
-        top: `${this.verticalOffset}px`,
+        top: `${this.verticalOffset}px`
       };
-    },
+    }
   },
   methods: {
     close() {
       this.closed = true;
       this.visible = false;
-      if (typeof this.onClose === "function") {
+      if (typeof this.onClose === 'function') {
         this.onClose(this);
       }
     },
@@ -61,11 +61,11 @@ export default {
           this.close();
         }, this.duration);
       }
-    },
+    }
   },
   mounted() {
     this.startTimer();
-  },
+  }
 };
 </script>
 

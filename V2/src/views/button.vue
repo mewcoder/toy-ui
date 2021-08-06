@@ -43,7 +43,7 @@
         <t-button type="primary" icon="t-icon-delete"></t-button>
         <t-button type="primary" icon="t-icon-search">搜索</t-button>
         <t-button type="primary">
-          上传
+          <span>上传</span>
           <i class="t-icon-upload t-icon--right"></i>
         </t-button>
       </div>
