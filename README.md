@@ -1,9 +1,9 @@
 # Toy-UI 组件库
 
-## V2
+## v2
 
-- 采用 Vue2 版本开发
-  样式基本复用 elementUI
+- 采用 vue2 版本开发
+  样式基本复用 element-ui
 - 组件
   - [x] button
   - [ ] input
