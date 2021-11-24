@@ -3,7 +3,7 @@
 ## V2
 
 - 采用 Vue2 版本开发
-  样式基本复用elementUI
+  样式基本复用 elementUI
 - 组件
   - [x] button
   - [ ] input
@@ -18,7 +18,3 @@
   - [ ] backtop
   - [ ] tree
   - [ ] table
-
-## V3
-
-- 采用 Vue3 版本开发
